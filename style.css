@@ -58,7 +58,6 @@ h1 {
     font-size: 25px;
     background: rgb(5, 212, 115);
     border: white 4px solid;
-    /* pointer-events: none; */
 }
 
 .count {
@@ -71,9 +70,10 @@ h1 {
     margin-top: 100px;
     margin-left: 175px;
     padding-right: 100px;
-    height: 250px;
-    width: 250px;
+    height: 260px;
+    width: 260px;
     padding: 0;
+    background-color: white;
     text-align: center;
     border: 5px black solid;
 }
