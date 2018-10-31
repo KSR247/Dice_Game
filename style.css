@@ -43,12 +43,6 @@ h1 {
 
 }
 
-.playerOne {
-    text-align: left;
-    padding-left: 10px;
-    width: 250px;
-}
-
 .roll {
     top: 55px;
     position: relative;
@@ -57,12 +51,10 @@ h1 {
     padding: 0;
     font-size: 25px;
     background: rgb(5, 212, 115);
-    border: white 4px solid;
 }
 
 .count {
-    text-align: left;
-    width: 250px;
+    text-align: center;
     padding-left: 10px;
 }
 
@@ -76,4 +68,20 @@ h1 {
     background-color: white;
     text-align: center;
     border: 5px black solid;
+}
+
+button {
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: white;
+    border: white;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
 }

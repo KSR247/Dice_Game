@@ -1,75 +1,49 @@
-// var img = new Image();
-
-// img.src = './img/one.svg';
-    //  var theImages = [{
-    //     dice1:
-    //     "./img/dice-1.png",
-    //     width: "250",
-    //     height: "250"
-    // }, {
-    //     dice2:
-    //     "./img/two.svg",
-    //     width: "250",
-    //     height: "250"
-    // }, {
-    //     dice3:
-    //     "./img/three.svg",
-    //     width: "250",
-    //     height: "250"
-    // }, {
-    //     dice4:
-    //     "./img/four.svg",
-    //     width: "250",
-    //     height: "250"
-    // }, {
-    //     dice5:
-    //     "./img/five.svg",
-    //     width: "250",
-    //     height: "250"
-    // }, {
-    //     dice6:
-    //     "./img/six.svg",
-    //     width: "250",
-    //     height: "250"
-    // }];
-
 const roll = document.getElementById('rollDice');
 
+let score = document.getElementById('countNum');
 
-let randomNum = Math.floor(Math.random() * 6) + 1
+let totalScore = 0; // score always starts at zero.
 
 
+//------------- Restart the game and reset the vaules --------------
+
+const resetGame = document.getElementById('newGame')
+
+function init(){
+    resetGame.addEventListener('click', function() {
+        document.getElementById('newGame').style.display = "none";
+    document.getElementById('rollDice').style.display = "block";
+    document.getElementById('countNum').innerHTML = `Count`
+    document.getElementById("diceImg").src = "";
+    totalScore = 0;
+    });
+};
+
+init();
+
+
+//-------- Starts the roll of dice, image is changed each time. if 1 you lose, if more than 20 you win -----
 
 function click(){
     roll.addEventListener('click', function() {
+        let randomNum = Math.floor(Math.random() * 6) + 1 
+        document.getElementById("diceImg").src = `./img/dice${randomNum}.png`;
+        document.getElementById('countNum').innerHTML = `Count = ${totalScore += randomNum}`
     if (randomNum == 1) {
          document.getElementById("diceImg").src = "./img/dice1.png";
-    } else if ( randomNum == 2) {
-        document.getElementById("diceImg").src = "./img/dice2.png";
-    } else if (randomNum == 3) {
-        document.getElementById("diceImg").src = "./img/dice3.png";
-    } else if (randomNum == 4) {
-        document.getElementById("diceImg").src = "./img/dice4.png";
-    } else if (randomNum == 5) {
-         document.getElementById("diceImg").src = "./img/dice5.png";
-    } else {
-         document.getElementById("diceImg").src = "./img/dice6.png";
+         document.getElementById('countNum').innerHTML = `you Lose`
+        document.getElementById('rollDice').style.display = "none";
+        document.getElementById('newGame').style.display = "block";
+         totalScore = 0;
+         
+    } else if (totalScore >= 20) {
+        document.getElementById('countNum').innerHTML = `Winner`
+        document.getElementById('rollDice').style.display = "none";
+        document.getElementById('newGame').style.display = "block";
+        totalScore = 0;
     }
-
-    console.log(randomNum);
 });
 };
 
 click();
-setTimeout(click, 1000);
 
-
-// roll.addEventListener('click', function(e){
-// 		var dice = Math.floor(Math.random() * 6) + 1;
-// 		var diceDOM = document.querySelector('.displayDice');
-// 		diceDOM.style.display = 'block';
-// 		diceDOM.src = diceImage['theImages[0]'];	
-//         console.log(diceDOM)
-//     }
-    
-// );
